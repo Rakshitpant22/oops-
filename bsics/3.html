@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+</head>
+<body>
+ 
+</body>
+
+<script>
+  const div= document.createElement("div")
+  console.log(div)
+  div.className="main"
+  div.id= 2122
+
+  div.setAttribute("tittle","mera")
+  div.innerHTML= "RAKSHIT PANT 20 LPA"
+  div.style.color='green'
+
+  // point 
+
+  // acha way of writing by dom is by set.attribute() than innerHTML
+  // innerHTML pehle reference laega fir write krega where setattribute directly krta ha
+ 
+ //Another method is to create textnode and then append text node in document
+ div.appendChild(document.createTextNode("Congrats"))
+ document.body.appendChild(div)
+</script>
+
+</html>

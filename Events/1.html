@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+//         //ye methid hme kum features deta hai
+
+//       document.getElementById('owl').onclick = function(){
+//       alert("owl clicked")
+//      }
+
+//      //other method is by event listner it has more use cases
+
+//       document.getElementById('owl').addEventListener('click',function(){
+//        alert("owl hu bhai")
+//   })
+
+// other methods for events are : attachEvent()
+// element.attachEvent('onclick',handlerFunction);  (in Internet Explorer 5 or newer)
+// element.addEventListener('click',handlerFunction,false); (in most non-IE browsers and IE9).
+// in j.query there was jQuery-on
+
+
+document.getElementById('owl').addEventListener('click',function(e){
+  //  console.log(e);
+},false)
+    
+  // EVENTS 
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+
+    //Event propagation :: events jis dhr derive kre hsi vah se upar jaate hai ex:
+    // document.getElementById('owl').addEventListener('click',function(){
+    //     alert("me OWL hu");
+    // },false)
+
+    // //event.stoppropagation() se bubbling ko rok skte hai
+    // document.getElementById('images').addEventListener('click',function(){
+    //     alert("me LIST hu");
+    // },true)
+
+//The BUBBLING PHASE is simple.
+//When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way 
+//up on other ancestors.
+
+//To catch an event on the CAPTURING PHASE we need to set the handler capture option to true:
+//elem.addEventListener(..., true)
+
+// There are two possible values of the capture option:
+
+// If it’s false (default), then the handler is set on the bubbling phase.
+// If it’s true, then the handler is set on the capturing phase.
+
+
+// document.getElementById('google').addEventListener('click',function(e){
+//          e.preventDefault();
+//          e.stopPropagation()
+//          console.log("google clicked");
+//      }, false)
+
+document.getElementById('images').addEventListener('click',function(e){
+    console.log(e.target.parentNode);
+ //    e.target.parentNode.remove(); isse agr list m krenge to puri list ud jaegi
+   
+  if(e.target.tagName=== 'IMG'){
+    e.target.parentNode.remove();
+  }
+},false)
+
+</script>
+</html>

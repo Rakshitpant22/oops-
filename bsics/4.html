@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+</head>
+<body
+    style="background-color: #212121; color: #f0e10b;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<SCript>
+    // to add more list items using function method
+//1: method -->isme hmesha last m add horha h to not good in large lists
+    function add(langname){
+        const li= document.createElement('li')
+        li.innerHTML = `${langname}`
+        document.querySelector(".language").appendChild(li)
+    }   
+    add("greek")
+
+//2: method 
+
+function add2(langname){
+    const li= document.createElement('li')
+    li.appendChild(document.createTextNode(langname))
+
+    document.querySelector('.language').appendChild(li)
+
+}
+add2("Ruby")
+
+
+// FOR EDITING VALUES:
+
+//const lang= document.querySelector('li:nth-child(2)')
+//lang.innerHTML="fff"
+// const newli=document.createElement('li')
+// newli.textContent ="fff"
+// lang.replaceWith(newli)
+
+//remove
+document.querySelector('li:first-child').remove()
+
+</SCript>
+</html>

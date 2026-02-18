@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>CHANGE MY COLOUR </h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const randomcol=function(){
+        const hex = '0123456789ABCDEF';
+        let color="#"
+        for(let i=0;i<6;i++){
+            color+= hex[Math.floor(Math.random()*16)];
+        }
+        return color;
+    }
+
+    let intervalId;
+    const startchangecolor=function(){
+        if(!intervalId){
+            intervalId = setInterval(changecol, 800);
+        } 
+
+    function changecol(){
+    document.body.style.backgroundColor = randomcol();
+  }
+};
+
+const stopChangingColor = function () {
+  clearInterval(intervalId);
+  intervalId = null;
+};
+
+document.getElementById('start').addEventListener('click', startchangecolor);
+document.getElementById('stop').addEventListener('click',stopChangingColor );
+
+
+</script>
+</html>
